@@ -1,5 +1,5 @@
-import { MenuItems, Attribution, Container, Header, Section, GraphicSection, PhotographySection, UserComment, Comments, Gallery, Footer } from "./styles"
-
+import { MenuItems, Attribution, Container, Header, Section, GraphicSection, PhotographySection, UserComment, Comments, Gallery, Footer, Modal } from "./styles"
+import { useState } from "react"
 import Logo from "../../assets/logo.svg"
 import ArrowDown from "../../assets/icon-arrow-down.svg"
 import Egg from "../../assets/mobile/image-transform.jpg"
@@ -15,24 +15,37 @@ import Facebook from "../../assets/icon-facebook.svg"
 import Instagram from "../../assets/icon-instagram.svg"
 import Twitter from "../../assets/icon-twitter.svg"
 import Pinterest from "../../assets/icon-pinterest.svg"
+import MenuBar from "../../assets/icon-hamburger.svg"
 
 const LandingPage = () => {
+
+  const [menu, setMenu] = useState(false)
+
+  const openMenu = () => {
+    setMenu(true)
+  }
+
     return (
-        
         <Container>
         <Header>
-        <div>
-        <img src={Logo}/>
-        <MenuItems>
-          About
-          Services
-          Projects
-          Contact
-        </MenuItems>
-        </div>
+        <section>
+        <img src={Logo} className="logo" />
+        <img src={MenuBar} onClick={openMenu} className="menu" />
+
+        <Modal
+          isOpen={menu}
+        >
+          <span>About</span>
+          <span>Services</span>
+          <span>Projects</span>
+          <span id="contact" >Contact</span>
+        </Modal>
+
+        </section>
         <h1>We are creatives</h1>
         <img src={ArrowDown} id="arrow-down" />
         </Header>
+
         <Section>
         <div>
           <img src={Egg}/>

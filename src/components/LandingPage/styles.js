@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import ReactModal from "react-modal"
 import MobileImageHeader from "../../assets/mobile/image-header.jpg"
 import Cherry from "../../assets/mobile/image-graphic-design.jpg"
 import Orange from "../../assets/mobile/image-photography.jpg"
@@ -6,6 +7,31 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
 `
+export const Modal = styled(ReactModal)`
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    height: 13rem;
+    margin: 5rem auto;
+    padding: 2.5rem;
+    flex-direction: column;
+    background: var(--white);
+    text-align: center;
+    color: var(--dark-grayish-blue);
+
+    #contact {
+        background: var(--yellow);
+        padding: 0.8rem 0.5rem;
+        margin: 0 auto;
+        width: 50%;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        border-radius: 50px;
+        text-transform: uppercase;
+        color: var(--desatured-blue);
+    }
+`
+
 export const Header = styled.div`
     display: flex;
     flex-direction: column;
@@ -15,6 +41,10 @@ export const Header = styled.div`
     background-repeat: no-repeat;
     height: 505px;
     padding: 1rem;
+
+    section {
+        display: flex;
+    }
 
     h1 {
         text-align: center;
@@ -27,9 +57,6 @@ export const Header = styled.div`
     }
 `
 
-export const MenuItems = styled.div`
-    display: none;
-`
 export const Section = styled.div`
     text-align: center;
 
@@ -100,6 +127,10 @@ export const UserComment = styled.div`
     }
 `
 export const Gallery = styled.div`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
     img {
         width: 50%;
     }
